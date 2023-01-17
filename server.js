@@ -48,6 +48,10 @@ app.get('/ping', (request, response) => {
   );
 });
 
+app.get('/', (request, response) => {
+  response.sendFile(path.join(__basedir, request.path));
+});
+
 app.get('*', (request, response) => {
   response.sendFile(path.join(__basedir, request.path));
 });
