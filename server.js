@@ -1,4 +1,3 @@
-debugger;
 const path = require('path');
 
 const http = require('http');
@@ -10,7 +9,7 @@ const port = 8080;
 const __basedir = path.resolve('./');
 
 // const require = createRequire(import.meta.url);
-// const packageJSON = require(`${__basedir}/package.json`);
+const packageJSON = require(`${__basedir}/package.json`);
 
 /* ******************************** Server configuration ******************************** */
 
@@ -41,7 +40,7 @@ app.get('/ping', (request, response) => {
 
   response.status(200).end(
     JSON.stringify({
-      ident: 'packageJSON.name',
+      ident: packageJSON.name,
       status: 'OK',
       timestamp: Math.round(date.getTime() / 1000),
       date: date.toISOString(),
